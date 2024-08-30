@@ -42,7 +42,7 @@ coef_df['Abs_Coefficient'] = coef_df['Coefficient'].abs()
 # 절대값 기준 내림차순 정렬
 coef_df_sorted = coef_df.sort_values(by='Abs_Coefficient', ascending=False)
 # 정렬된 데이터를 CSV로 저장
-coef_df_sorted.to_csv('./final_regression_coefficients_sorted_2.csv', index=False)
+coef_df_sorted.to_csv('./result/final_regression_coefficients_sorted_2.csv', index=False)
 # 출력 결과 확인
 print(coef_df_sorted.head(10))
 
@@ -65,7 +65,7 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('AUROC Curve - Test Set')
 plt.legend(loc='lower right')
-plt.savefig('./test_auroc_curve.png')
+plt.savefig('./result/test_auroc_curve.png')
 plt.show()
 
 # Confusion Matrix 시각화 및 저장 (Test 데이터셋에 대해)
@@ -74,7 +74,7 @@ sns.heatmap(test_confusion, annot=True, fmt='d', cmap='Blues')
 plt.xlabel('Predicted Label')
 plt.ylabel('True Label')
 plt.title('Confusion Matrix - Test Set')
-plt.savefig('./test_confusion_matrix.png')
+plt.savefig('./result/test_confusion_matrix.png')
 plt.show()
 
 # 평가 결과 저장
@@ -87,7 +87,7 @@ results = {
 }
 
 results_df = pd.DataFrame([results])
-results_df.to_csv('./test_results.csv', index=False)
+results_df.to_csv('./result/test_results.csv', index=False)
 
 # 결과 출력
 print(f'Test Accuracy: {test_accuracy}')
